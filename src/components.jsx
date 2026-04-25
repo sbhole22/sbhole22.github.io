@@ -163,6 +163,16 @@ const Navbar = ({ onNav, active, onContact }) => {
           </button>
         ))}
         <span style={{ width: 1, height: 22, background: "var(--stroke)" }} />
+        <a href={CONTACT.github} target="_blank" rel="noopener" style={{ padding: "8px 14px", fontSize: 13, fontWeight: 500, borderRadius: 999, color: "var(--text-dim)", transition: "color 0.2s, background 0.2s" }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.background = "oklch(0.30 0.008 240 / 0.4)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-dim)"; e.currentTarget.style.background = "transparent"; }}>GitHub</a>
+        <a href={CONTACT.linkedin} target="_blank" rel="noopener" style={{ padding: "8px 14px", fontSize: 13, fontWeight: 500, borderRadius: 999, color: "var(--text-dim)", transition: "color 0.2s, background 0.2s" }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.background = "oklch(0.30 0.008 240 / 0.4)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-dim)"; e.currentTarget.style.background = "transparent"; }}>LinkedIn</a>
+        <a href={CONTACT.resume} target="_blank" rel="noopener" style={{ padding: "8px 14px", fontSize: 13, fontWeight: 500, borderRadius: 999, color: "var(--text-dim)", transition: "color 0.2s, background 0.2s" }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.background = "oklch(0.30 0.008 240 / 0.4)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-dim)"; e.currentTarget.style.background = "transparent"; }}>Resume</a>
+        <span style={{ width: 1, height: 22, background: "var(--stroke)" }} />
         <PillButton size="sm" onClick={onContact} arrow>Say hi</PillButton>
       </div>
     </div>
