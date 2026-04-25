@@ -393,7 +393,7 @@ const STATS = [
 const CONTACT = {
   email: "swapbhole22@gmail.com",
   github: "https://github.com/sbhole22",
-  linkedin: "https://www.linkedin.com/in/swapnil-bhole/",
+  linkedin: "https://www.linkedin.com/in/swapnilbhole22/",
   resume: "assets/Swapnil_Bhole_Resume.pdf",
 };
 
