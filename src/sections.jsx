@@ -104,7 +104,7 @@ const Hero = ({ onNav, onContact }) => {
         <div className="blur-in" style={{ animationDelay: "0.7s", maxWidth: 600 }}>
           <p style={{ fontSize: 14, lineHeight: 1.7, color: "var(--muted)", margin: 0 }}>
             Master&rsquo;s student in ECE at the University of Michigan. Six years at C-DOT designing 5G/LTE
-            systems from RTL to firmware. Four IEEE publications. One commercialized patent.
+            systems from RTL to firmware. Four IEEE publications.
           </p>
         </div>
 
