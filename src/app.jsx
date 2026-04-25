@@ -2,7 +2,6 @@
 const { useState: uS, useEffect: uE, useRef: uR } = React;
 
 function App() {
-  const [loading, setLoading] = uS(true);
   const [active, setActive] = uS("home");
   const [modal, setModal] = uS(null);
   const [contactOpen, setContactOpen] = uS(false);
@@ -12,7 +11,6 @@ function App() {
 
   // Scroll-spy
   uE(() => {
-    if (loading) return;
     const ids = ["home", "work", "experience", "publications", "skills"];
     const onScroll = () => {
       const y = window.scrollY + window.innerHeight * 0.35;
@@ -26,7 +24,7 @@ function App() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [loading]);
+  }, []);
 
   const onNav = (id) => {
     const el = document.getElementById(id);
@@ -35,7 +33,6 @@ function App() {
 
   return (
     <>
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       <Navbar onNav={onNav} active={active} onContact={openContact} />
       <main>
         <Hero onNav={onNav} onContact={openContact} />
