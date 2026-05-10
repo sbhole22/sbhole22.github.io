@@ -1,9 +1,7 @@
 // Contact form modal — uses Formspree for email delivery (no backend needed).
 const { useState: cState, useEffect: cEffect } = React;
 
-// Replace this endpoint with the user's Formspree form ID (they create one at formspree.io)
-// The placeholder uses a generic endpoint that prompts setup on first submit.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpwybjzr"; // <-- swap with your own form ID
+const WEB3FORMS_KEY = "8ddeb87d-ffda-47c1-b539-b3413ea510b1";
 
 const ContactModal = ({ open, onClose }) => {
   const [name, setName] = cState("");
@@ -39,22 +37,22 @@ const ContactModal = ({ open, onClose }) => {
     setStatus("sending");
     setErrMsg("");
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
           name,
           email,
           message,
-          _subject: `Portfolio message from ${name}`,
-          _replyto: email,
+          subject: `Portfolio message from ${name}`,
         }),
       });
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
         setStatus("success");
       } else {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error || "Form endpoint not configured. Use the email link below.");
+        throw new Error(data?.message || "Could not send. Please email directly.");
       }
     } catch (err) {
       setStatus("error");
